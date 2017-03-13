@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cec87da8edd64f789c202ca521641dfa" Name="Diagram1">
+        <EntityTypeShape EntityType="MSEsystemModel.Admin" Width="1.5" PointX="12.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Category" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.ChiefManager" Width="1.5" PointX="12.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Department" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Employee" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Expertise" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Image" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Location" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Manager" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.Ticket" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.TicketsForEmployee" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MSEsystemModel.User" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="MSEsystemModel.FK_Admin_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_Ticket_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_ChiefManager_Manager" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_User_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_Employee_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_Manager_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_TicketsForEmployee_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_Ticket_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_Ticket_Location" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_TicketsForEmployee_Ticket" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.FK_TicketsForEmployee_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MSEsystemModel.Personnel" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

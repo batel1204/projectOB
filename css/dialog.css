@@ -1,0 +1,277 @@
+﻿/* main dialog */
+.bootstrap-dialog .modal-header.bootstrap-dialog-draggable {
+    cursor: move;
+}
+
+.bootstrap-dialog .modal-header {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.bootstrap-dialog .bootstrap-dialog-close-button {
+    float: left;
+}
+
+
+.bootstrap-dialog-message br {
+    display: none;
+}
+
+.bootstrap-dialog-message h1 {
+    margin: 0px 0px 10px;
+}
+
+.modal-body {
+    padding-top: 10px;
+}
+
+.bootstrap-dialog-message .nav-tabs > li {
+    margin-left: 4px;
+}
+
+.bootstrap-dialog .bootstrap-dialog-button-icon {
+    margin-right: 0px;
+    margin-left: 6px;
+}
+
+.fw-msg-error {
+    margin: 0px;
+    position: absolute;
+    /*margin-right: 0px;*/
+    bottom: -56px;
+    padding: 10px 20px 6px 0px;
+    width: 250px;
+}
+
+.moment-picker .moment-picker-container {
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    z-index: 50;
+}
+
+.badge {
+    padding: 2px 6px;
+    font-size: 12px;
+    /*font-weight: bold;*/
+    border-radius: 12px;
+}
+
+.tb-scroll {
+    margin: 0px;
+    padding: 0px;
+    overflow-y: scroll;
+    height: 250px;
+    border: 1px solid #cccccc;
+}
+
+.moment-picker .moment-picker-container:before, .moment-picker .moment-picker-container:after {
+    left: 177px;
+}
+
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+    .input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+#cardTask label {
+    padding-left: 0px;
+}
+
+/* file upload */
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dotted #DDD;
+    height: 100%;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.drop-box-min {
+    background: #e7f5e5;
+    border: 2px dotted #43ac6a;
+    height: 100%;
+    text-align: center;
+}
+
+.dragover {
+    border: 5px dotted #008CBA;
+}
+
+#searchAdvPanel {
+    background-color: white;
+    border: 1px solid silver;
+    width: 200px;
+}
+
+#searchInput {
+    width: 200px;
+}
+
+#searchclear {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    height: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+#searchAdvDD li {
+    width: 100%;
+    background-color: #5BC0DE !important;
+    border-right: none;
+}
+
+.ul-scroll {
+    max-height: 250px;
+    overflow: auto;
+}
+
+.sub-menus {
+    background-color: #E7E7E7;
+    padding: 6px 0px 3px;
+}
+
+#gridTabs > .nav > li > a {
+    padding: 5px 15px;
+}
+
+/*#gridTabs > .nav > li {
+    margin-left: 4px;
+}
+*/
+
+.smWidthClass {
+    width: 30px;
+}
+
+.centeredCol {
+    text-align: center;
+}
+
+.heightNine {
+    height: 90px !important;
+}
+
+.basic-tr td .btn {
+    -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0.4) !important;
+    box-shadow: none !important;
+    border-radius: 3px;
+}
+.btn-xs {
+padding-top:2px;
+padding-right:1px;
+padding-left:1px;
+width:24px;
+height:24px;
+}
+
+/*.basic-tr td > a.hover-buttons {
+    display: none !important;
+}
+.basic-tr:hover  td > a.hover-buttons {
+    display: inline !important;
+}*/
+
+/*.row-but a{
+    display:none;
+}*/
+
+
+/*.row-but:hover  a{
+    display:inline!important;
+}*/
+
+.basic-tr > td >  span.hover-buttons {
+    display: none !important;
+}
+
+.basic-tr:hover > td  >  span.hover-buttons {
+    display:inline!important
+}
+
+
+
+
+    /*display:inline!important
+}*/
+.ion-toggle-filled {  
+    color:red
+}
+.ion-toggle:hover {
+    color:red
+}
+
+/*.btn-group>.btn:last-child:not(:first-child), 
+.btn-group>.dropdown-toggle:not(:first-child) {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}*/
+
+.btn-group>.btn{
+    margin-left:1px!important;
+
+}
+.input-group-xs>.form-control,
+.input-group-xs>.input-group-addon,
+.input-group-xs>.input-group-btn>.btn {
+    height: 24px;
+    padding: 1px 5px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mainSmallDiv{
+    margin:15px;
+}
+
+.mainSmallDiv label{
+    text-align:right!important;
+}
+
+.v-badge{
+    background-color:white;
+    color:#008CBA;
+}
+
+.fileCardSelect{
+    height:auto!important;
+    padding:0px!important;
+}
+
+ .select2-container {
+        min-width: 100px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border: 1px solid #cccccc;
+        border-radius: 0px;
+        padding-top: 2px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 32px;
+    }
+    .select2-container .select2-selection--single {
+        height: 36px;
+    }
+
+    .stamClass .form-group .control-label{
+        text-align:right!important;
+    }
+
+    .addLinksDialog .modal-dialog {
+        width:350px;
+    }

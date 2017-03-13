@@ -1,0 +1,44 @@
+﻿<ul class="mfb-component--br mfb-zoomin loaded-new" data-mfb-toggle="hover" style="padding: 0px; ">
+    <li class="mfb-component__wrap">
+        <a href="#" class="mfb-component__button--main">
+            <i class="mfb-component__main-icon--resting ion-plus-round"></i>
+            <i class="mfb-component__main-icon--active ion-close-round"></i>
+        </a>
+        <ul class="mfb-component__list">
+            <li data-ng-show="selectedPage==0">
+                <a href="#" data-ng-click="newCourse(1)" data-mfb-label="חוג שחייה" class="mfb-component__button--child" style="background-color:#4cb1ea">
+                    <i class="mfb-component__child-icon glyphicon glyphicon-education"></i>
+                </a>
+            </li>
+            <li data-ng-show="selectedPage==0">
+                <a href="#" data-ng-click="newCourse(2)" data-mfb-label="קורס לימוד" class="mfb-component__button--child" style="background-color:#4cb1ea">
+                    <i class="mfb-component__child-icon glyphicon glyphicon-education"></i>
+                </a>
+            </li>
+            <li data-ng-show="selectedPage==0">
+                <a href="#" data-ng-click="newCourse(3)" data-mfb-label="שיעורים פרטיים" class="mfb-component__button--child" style="background-color:#4cb1ea">
+                    <i class="mfb-component__child-icon glyphicon glyphicon-education"></i>
+                </a>
+            </li>
+
+            <li data-ng-show="selectedPage==1">
+                <a href="#" data-ng-click="editEventDep()" data-mfb-label="לקוח חדש" class="mfb-component__button--child" style="background-color:#38b44a">
+                    <i class="mfb-component__child-icon glyphicon glyphicon-user"></i>
+                </a>
+            </li>
+
+            <li data-ng-show="selectedPage==2">
+                <a href="#" data-ng-click="newInstructor()" data-mfb-label="מדריך חדש" class="mfb-component__button--child"  style="background-color:#f66205">
+                    <i class="mfb-component__child-icon glyphicon glyphicon-sunglasses"></i>
+                </a>
+            </li>
+
+            <li data-ng-show="selectedPage==3">
+                <a href="#" data-ng-click="newBranch()" data-mfb-label="סניף חדש" class="mfb-component__button--child"  style="background-color:#d5242a"
+                   data-mfb-toggle="click">
+                    <i class="mfb-component__child-icon glyphicon glyphicon-home"></i>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

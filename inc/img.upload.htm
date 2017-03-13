@@ -1,0 +1,40 @@
+﻿<div style="text-align:center;font-size:12px;padding:0px;margin: 0px auto;">
+    <img data-ng-src="{{selectedInstructor.Img}}" data-ng-show="!imgLoading" 
+         style="width:100%;cursor:pointer;margin-top: 20px;margin-right: 5px;" data-ng-click="fileInputClick($event)" title="קליק כדי להחליף את התמונה" />
+    <div class="loaderImg" data-ng-show="imgLoading"></div>
+    <!--<a href="#" data-ng-click="fileInputClick($event)">החלף תמונה</a>-->
+    <input type="file" name="file" multiple="multiple" style="display:none" onchange="scope.fileUpload(this.files[0])" />
+</div>
+<style>
+    .loaderImg {
+        border: 10px solid #d9edf7;
+        border-radius: 50%;
+        border-top: 10px solid #efb73e;
+        border-bottom: 10px solid #efb73e;
+        width: 80px;
+        height: 80px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        margin-bottom:20px;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
