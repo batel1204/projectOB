@@ -26,8 +26,8 @@ public partial class Login : System.Web.UI.Page
     {
         using (var db = new MSEsystemEntities())
         {
-            var user = db.User.Where(i => i.uid == inputUser.Text && i.User_Password == inputPassword.Text).FirstOrDefault();
-            if (user == null || user.Login_Status==true)
+            var user = db.User.Where(i => i.uid == inputUser.Text && i.UserPassword == inputPassword.Text).FirstOrDefault();
+            if (user == null || user.LoginStatus==true)
             {
                 pnlMessage.Visible = true;
             }
@@ -47,8 +47,8 @@ public partial class Login : System.Web.UI.Page
         using (var db = new MSEsystemEntities())
         {
           
-            User user = db.User.Where(i => i.uid == inputUser.Text && i.User_Password == inputPassword.Text).FirstOrDefault();
-            if (user == null || user.Login_Status == true)
+            User user = db.User.Where(i => i.uid == inputUser.Text && i.UserPassword == inputPassword.Text).FirstOrDefault();
+            if (user == null || user.LoginStatus == true)
             {
                 pnlMessage.Visible = true;
             }

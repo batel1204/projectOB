@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MSEsystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MSEsystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admin">
           <Key>
             <PropertyRef Name="idAdmin" />
@@ -114,11 +114,11 @@
           </Key>
           <Property Name="uid" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DisplayName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="E-mail-Address" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Telephone-Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Department" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="User-Password" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Login-Status" Type="bit" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LoginStatus" Type="bit" Nullable="false" />
           <Property Name="Role" Type="int" Nullable="false" />
           <Property Name="admin" Type="bit" Nullable="false" />
         </EntityType>
@@ -346,8 +346,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MSEsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -473,17 +472,17 @@
           </Key>
           <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="E_mail_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Telephone_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Login_Status" Type="Boolean" Nullable="false" />
           <Property Name="Role" Type="Int32" Nullable="false" />
           <Property Name="admin" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Department1" Relationship="Self.FK_User_Department" FromRole="User" ToRole="Department" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Employee" FromRole="User" ToRole="Employee" />
           <NavigationProperty Name="TicketsForEmployee" Relationship="Self.FK_TicketsForEmployee_User" FromRole="User" ToRole="TicketsForEmployee" />
           <NavigationProperty Name="Location" Relationship="Self.Personnel" FromRole="User" ToRole="Location" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginStatus" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Admin_Manager">
           <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
@@ -800,13 +799,13 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="MSEsystemModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="uid" ColumnName="uid" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="E_mail_Address" ColumnName="E-mail-Address" />
-                <ScalarProperty Name="Telephone_Number" ColumnName="Telephone-Number" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="User_Password" ColumnName="User-Password" />
-                <ScalarProperty Name="Login_Status" ColumnName="Login-Status" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="admin" ColumnName="admin" />
               </MappingFragment>

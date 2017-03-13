@@ -30,7 +30,7 @@
                             $scope.currentUser.Permission = $scope.tempUser.Role;
                             $scope.currentUser.Department = $scope.tempUser.Department;
                             $scope.currentUser.FullName = $scope.tempUser.DisplayName;
-                            $scope.currentUser.EMail = $scope.tempUser.E_mail_Address;
+                            $scope.currentUser.EMail = $scope.tempUser.EmailAddress;
                         } else {
                             console.log(d.data);
                         }

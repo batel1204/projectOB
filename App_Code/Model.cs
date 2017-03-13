@@ -177,13 +177,13 @@ public partial class User
 
     public string uid { get; set; }
     public string DisplayName { get; set; }
-    public string E_mail_Address { get; set; }
-    public string Telephone_Number { get; set; }
     public string Department { get; set; }
-    public string User_Password { get; set; }
-    public bool Login_Status { get; set; }
     public int Role { get; set; }
     public bool admin { get; set; }
+    public string EmailAddress { get; set; }
+    public string TelephoneNumber { get; set; }
+    public string UserPassword { get; set; }
+    public bool LoginStatus { get; set; }
 
     public virtual Department Department1 { get; set; }
     public virtual Employee Employee { get; set; }
