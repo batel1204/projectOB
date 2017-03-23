@@ -5,18 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="MSEsystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="idAdmin" />
-          </Key>
-          <Property Name="idAdmin" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="idCategory" />
           </Key>
           <Property Name="idCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Domain" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ChiefManager">
           <Key>
@@ -88,7 +83,7 @@
           <Key>
             <PropertyRef Name="idTicket" />
           </Key>
-          <Property Name="idTicket" Type="int" Nullable="false" />
+          <Property Name="idTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Category" Type="int" Nullable="false" />
           <Property Name="Location" Type="int" Nullable="false" />
           <Property Name="Priority" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -122,18 +117,6 @@
           <Property Name="Role" Type="int" Nullable="false" />
           <Property Name="admin" Type="bit" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Admin_Manager">
-          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
-          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Manager">
-              <PropertyRef Name="idManager" />
-            </Principal>
-            <Dependent Role="Admin">
-              <PropertyRef Name="idAdmin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ChiefManager_Manager">
           <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
           <End Role="ChiefManager" Type="Self.ChiefManager" Multiplicity="0..1" />
@@ -279,7 +262,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MSEsystemModelStoreContainer">
-          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChiefManager" EntityType="Self.ChiefManager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
@@ -293,10 +275,6 @@
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TicketsForEmployee" EntityType="Self.TicketsForEmployee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Admin_Manager" Association="Self.FK_Admin_Manager">
-            <End Role="Manager" EntitySet="Manager" />
-            <End Role="Admin" EntitySet="Admin" />
-          </AssociationSet>
           <AssociationSet Name="FK_ChiefManager_Manager" Association="Self.FK_ChiefManager_Manager">
             <End Role="Manager" EntitySet="Manager" />
             <End Role="ChiefManager" EntitySet="ChiefManager" />
@@ -350,19 +328,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MSEsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="idAdmin" />
-          </Key>
-          <Property Name="idAdmin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Manager" Relationship="Self.FK_Admin_Manager" FromRole="Admin" ToRole="Manager" />
-        </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="idCategory" />
           </Key>
           <Property Name="idCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Domain" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Ticket" Relationship="Self.FK_Ticket_Category" FromRole="Category" ToRole="Ticket" />
         </EntityType>
         <EntityType Name="ChiefManager">
@@ -421,7 +393,6 @@
           </Key>
           <Property Name="idManager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Location" Type="Int32" />
-          <NavigationProperty Name="Admin" Relationship="Self.FK_Admin_Manager" FromRole="Manager" ToRole="Admin" />
           <NavigationProperty Name="ChiefManager" Relationship="Self.FK_ChiefManager_Manager" FromRole="Manager" ToRole="ChiefManager" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Manager_Employee" FromRole="Manager" ToRole="Employee" />
         </EntityType>
@@ -439,7 +410,7 @@
           <Key>
             <PropertyRef Name="idTicket" />
           </Key>
-          <Property Name="idTicket" Type="Int32" Nullable="false" />
+          <Property Name="idTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category" Type="Int32" Nullable="false" />
           <Property Name="Location" Type="Int32" Nullable="false" />
           <Property Name="Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -472,30 +443,18 @@
           </Key>
           <Property Name="uid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelephoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoginStatus" Type="Boolean" Nullable="false" />
           <Property Name="Role" Type="Int32" Nullable="false" />
           <Property Name="admin" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Department1" Relationship="Self.FK_User_Department" FromRole="User" ToRole="Department" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Employee" FromRole="User" ToRole="Employee" />
           <NavigationProperty Name="TicketsForEmployee" Relationship="Self.FK_TicketsForEmployee_User" FromRole="User" ToRole="TicketsForEmployee" />
           <NavigationProperty Name="Location" Relationship="Self.Personnel" FromRole="User" ToRole="Location" />
-          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TelephoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LoginStatus" Type="Boolean" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Admin_Manager">
-          <End Role="Manager" Type="Self.Manager" Multiplicity="1" />
-          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Manager">
-              <PropertyRef Name="idManager" />
-            </Principal>
-            <Dependent Role="Admin">
-              <PropertyRef Name="idAdmin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Ticket_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="1" />
           <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
@@ -621,7 +580,6 @@
           <End Role="User" Type="Self.User" Multiplicity="*" />
         </Association>
         <EntityContainer Name="MSEsystemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admin" EntityType="Self.Admin" />
           <EntitySet Name="Category" EntityType="Self.Category" />
           <EntitySet Name="ChiefManager" EntityType="Self.ChiefManager" />
           <EntitySet Name="Department" EntityType="Self.Department" />
@@ -634,10 +592,6 @@
           <EntitySet Name="Ticket" EntityType="Self.Ticket" />
           <EntitySet Name="TicketsForEmployee" EntityType="Self.TicketsForEmployee" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Admin_Manager" Association="Self.FK_Admin_Manager">
-            <End Role="Manager" EntitySet="Manager" />
-            <End Role="Admin" EntitySet="Admin" />
-          </AssociationSet>
           <AssociationSet Name="FK_Ticket_Category" Association="Self.FK_Ticket_Category">
             <End Role="Category" EntitySet="Category" />
             <End Role="Ticket" EntitySet="Ticket" />
@@ -689,18 +643,12 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="MSEsystemModelStoreContainer" CdmEntityContainer="MSEsystemEntities">
-          <EntitySetMapping Name="Admin">
-            <EntityTypeMapping TypeName="MSEsystemModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="idAdmin" ColumnName="idAdmin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="MSEsystemModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="idCategory" ColumnName="idCategory" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Domain" ColumnName="Domain" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -799,13 +747,13 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="MSEsystemModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
-                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
-                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="uid" ColumnName="uid" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="LoginStatus" ColumnName="LoginStatus" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="admin" ColumnName="admin" />
               </MappingFragment>

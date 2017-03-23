@@ -10,13 +10,6 @@
 using System;
 using System.Collections.Generic;
 
-public partial class Admin
-{
-    public string idAdmin { get; set; }
-
-    public virtual Manager Manager { get; set; }
-}
-
 public partial class Category
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,6 +20,7 @@ public partial class Category
 
     public int idCategory { get; set; }
     public string CategoryName { get; set; }
+    public string Domain { get; set; }
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
     public virtual ICollection<Ticket> Ticket { get; set; }
@@ -116,7 +110,6 @@ public partial class Manager
     public string idManager { get; set; }
     public Nullable<int> Location { get; set; }
 
-    public virtual Admin Admin { get; set; }
     public virtual ChiefManager ChiefManager { get; set; }
     public virtual Employee Employee { get; set; }
 }
@@ -177,13 +170,13 @@ public partial class User
 
     public string uid { get; set; }
     public string DisplayName { get; set; }
-    public string Department { get; set; }
-    public int Role { get; set; }
-    public bool admin { get; set; }
     public string EmailAddress { get; set; }
     public string TelephoneNumber { get; set; }
+    public string Department { get; set; }
     public string UserPassword { get; set; }
     public bool LoginStatus { get; set; }
+    public int Role { get; set; }
+    public bool admin { get; set; }
 
     public virtual Department Department1 { get; set; }
     public virtual Employee Employee { get; set; }

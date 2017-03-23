@@ -23,7 +23,6 @@ public partial class MSEsystemEntities : DbContext
         throw new UnintentionalCodeFirstException();
     }
 
-    public virtual DbSet<Admin> Admin { get; set; }
     public virtual DbSet<Category> Category { get; set; }
     public virtual DbSet<ChiefManager> ChiefManager { get; set; }
     public virtual DbSet<Department> Department { get; set; }
